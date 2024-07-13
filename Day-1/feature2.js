@@ -7,7 +7,7 @@ console.log('New Value:', reas);
 
 // Using const
 const Const = "CONST";
-console.log('Initial Value:', immutableConst);
+console.log('Initial Value:', Const);
 
 // Const = "NEWCONST"; // 
 

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <script src="activity9.js" defer></script>
+    <style>
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .normal {
+            background-color: whitesmoke;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- Activity 1: Selecting and Manipulating Elements -->
+    <div class="task1">
+        <h2>Activity 1: Selecting and Manipulating Elements</h2>
+        <div>
+            <p id="myElement">This is the original text.</p>
+            <button onclick="changeText()">Change Text</button>
+        </div>
+        <div>
+            <div class="myClass">
+                <p>This is a div element</p>
+            </div>
+            <button onclick="changeBackground()">Change BG Color</button>
+        </div>
+    </div>
+    
+    <!-- Activity 2: Creating and Appending Elements -->
+    <div class="task2">
+        <h2>Activity 2: Creating and Appending Elements</h2>
+        <div>
+            <button id="createDivButton" onclick="createDivElement()">Create and Append Div</button>
+        </div>
+        <div>
+            <div class="list">
+                <ul id="myList">
+                    <li>Messi</li>
+                    <li>Ronaldo</li>
+                </ul>
+                <button id="addItemButton" onclick="addList()">Add List Item</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Activity 3: Removing Elements -->
+    <div class="task3">
+        <h2>Activity 3: Removing Elements</h2>
+        <div>
+            <div id="container">
+                <p id="removeElement">This paragraph will be removed.</p>
+                <p>Another paragraph that will remain.</p>
+            </div>
+            <button id="removeElementButton" onclick="removeElement()">Remove Element</button>
+        </div>
+        <div>
+            <button id="removeLastElementButton" onclick="removeLastElement()">Remove Last Footballer</button>
+        </div>
+    </div>
+
+    <!-- Activity 4: Modifying Attributes and Classes -->
+    <div class="task4">
+        <h2>Activity 4: Modifying Attributes and Classes</h2>
+        <div>
+            <a id="myLink" href="https://www.google.com" target="_blank">Go to Google</a>
+            <button id="changeLinkButton" onclick="changeLink()">Change Link</button>
+        </div>
+        <div>
+            <p id="textElement" class="normal">This is a paragraph.</p>
+            <button id="addClassButton" onclick="addHighlightClass()">Add Highlight Class</button>
+            <button id="removeClassButton" onclick="removeHighlightClass()">Remove Highlight Class</button>
+        </div>
+    </div>
+
+
+
+    <!-- Activity 5: Event Handling -->
+    <div class="task5">
+        <h2>Activity 5: Event Handling</h2>
+        <div>
+            <p id="textParagraph">This is the original text.</p>
+            <button id="changeTextButton">Change Text</button>
+        </div>
+        <div>
+            <p id="borderElement" class="border-change">Hover over me to change border color!</p>
+        </div>
+</body>
+</html>

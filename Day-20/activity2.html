@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3 and Task 4: Using LocalStorage</title>
+</head>
+<body>
+    <!-- Task 3: Create a simple form that saves user input to localStorage and displays it -->
+    <h1 class="userName"></h1>
+    <h2 class="userEmail"></h2>
+
+    <input type="text" class="name" placeholder="Enter name here"/>
+    <button class="saveNameBtn">Save Name</button>
+  
+    <br />
+
+    <input type="text" class="email" placeholder="Enter email here"/>
+    <button class="saveEmailBtn">Save Email</button>
+
+    <br />
+
+    <button class="removeStorageBtn">Remove Data</button>
+
+
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedName = localStorage.getItem('name');
+            const savedEmail = localStorage.getItem('email');
+            
+            if (savedName) {
+                document.querySelector('.userName').textContent = `Name: ${savedName}`;
+            }
+
+            if (savedEmail) {
+                document.querySelector('.userEmail').textContent = `Email: ${savedEmail}`;
+            }
+
+            document.querySelector('.saveNameBtn').addEventListener('click', () => {
+                const name = document.querySelector('.name').value;
+                localStorage.setItem('name', name);
+                document.querySelector('.userName').textContent = `Name: ${name}`;
+                console.log('LocalStorage after saving name:', localStorage);
+            });
+
+            document.querySelector('.saveEmailBtn').addEventListener('click', () => {
+                const email = document.querySelector('.email').value;
+                localStorage.setItem('email', email);
+                document.querySelector('.userEmail').textContent = `Email: ${email}`;
+                console.log('LocalStorage after saving email:', localStorage);
+            });
+
+
+
+    // • Task 4: Write a script to remove an item from localStorage . Log the localStorage content before and after removal.
+
+
+            document.querySelector('.removeStorageBtn').addEventListener('click', () => {
+                console.log('LocalStorage before removal:', localStorage);
+                
+                localStorage.removeItem('name');
+                localStorage.removeItem('email');
+                document.querySelector('.userName').textContent = '';
+                document.querySelector('.userEmail').textContent = '';
+                
+                console.log('LocalStorage after removal:', localStorage);
+            });
+        });
+    </script>
+</body>
+</html>

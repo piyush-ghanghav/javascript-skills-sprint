@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 3: Understanding SessionStorage</title>
+</head>
+<body>
+    <h1>SessionStorage Tasks</h1>
+    
+    <script>
+        // Task 5: Save a string value to sessionStorage and retrieve it
+        sessionStorage.setItem('stringValue', 'Hello, SessionStorage!');
+        
+        const retrievedString = sessionStorage.getItem('stringValue');
+        if (retrievedString) {
+            console.log('Retrieved String:', retrievedString);
+        } else {
+            console.log('String Not Found in SessionStorage!');
+        }
+
+        // Task 6: Save an object to sessionStorage by converting it to a JSON string
+        const userObj = {
+            username: "Piyush",
+            email: "pg132@gmail.com"
+        };
+        
+        sessionStorage.setItem('userObj', JSON.stringify(userObj));
+        
+        const storedUserData = sessionStorage.getItem('userObj');
+        if (storedUserData) {
+            const userData = JSON.parse(storedUserData);
+            console.log('Retrieved User Object:', userData);
+        } else {
+            console.log('object Not Found in SessionStorage!');
+        }
+    </script>
+</body>
+</html>

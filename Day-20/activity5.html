@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 5: Comparing LocalStorage and SessionStorage</title>
+</head>
+<body>
+    <h1>LocalStorage and SessionStorage Comparison</h1>
+    
+    <input type="text" id="storageKey" placeholder="Enter key" />
+    <input type="text" id="storageValue" placeholder="Enter value" />
+    <button id="saveDataBtn">Save Data</button>
+    <button id="clearDataBtn">Clear All Data</button>
+
+    <h2>Stored Values:</h2>
+    <p id="localStorageData"></p>
+    <p id="sessionStorageData"></p>
+
+    <script>
+        function saveToStorage(key, value) {
+
+            localStorage.setItem(key, value);
+            sessionStorage.setItem(key, value);
+
+            const localStorageValue = localStorage.getItem(key);
+            const sessionStorageValue = sessionStorage.getItem(key);
+
+            console.log('LocalStorage:', localStorageValue);
+            console.log('SessionStorage:', sessionStorageValue);
+
+            document.getElementById('localStorageData').textContent = `LocalStorage - ${key}: ${localStorageValue}`;
+            document.getElementById('sessionStorageData').textContent = `SessionStorage - ${key}: ${sessionStorageValue}`;
+        }
+
+        function clearAllStorage() {
+            console.log('LocalStorage before clearing:', localStorage);
+            console.log('SessionStorage before clearing:', sessionStorage);
+
+            localStorage.clear();
+            sessionStorage.clear();
+
+            console.log('LocalStorage after clearing:', localStorage);
+            console.log('SessionStorage after clearing:', sessionStorage);
+
+            document.getElementById('localStorageData').textContent = 'LocalStorage cleared.';
+            document.getElementById('sessionStorageData').textContent = 'SessionStorage cleared.';
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('saveDataBtn').addEventListener('click', () => {
+                const key = document.getElementById('storageKey').value;
+                const value = document.getElementById('storageValue').value;
+                
+                if (key && value) {
+                    saveToStorage(key, value);
+                } else {
+                    console.log('Key or value cannot be empty.');
+                }
+            });
+
+            document.getElementById('clearDataBtn').addEventListener('click', () => {
+                clearAllStorage();
+            });
+        });
+    </script>
+</body>
+</html>

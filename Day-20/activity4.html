@@ -1,0 +1,69 @@
+<!-- Activity 4: Using SessionStorage
+• Task 7: Create a simple form that saves user input (e.g., name and email) to sessionstorage when submitted. Retrieve and display the saved data on page load.
+• Task 8: Write a script to remove an item from sessionstorage . Log the sessionStorage content before and after removal. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 4: Using SessionStorage</title>
+</head>
+<body>
+    <h1>User Form</h1>
+    
+    <form id="userForm">
+        <input type="text" id="name" placeholder="Enter your name" required />
+        <input type="email" id="email" placeholder="Enter your email" required />
+        <button type="submit">Save</button>
+    </form>
+
+    <h2>Saved Data:</h2>
+    <p id="savedName"></p>
+    <p id="savedEmail"></p>
+
+    <button id="removeDataBtn">Remove Data</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedName = sessionStorage.getItem('name');
+            const savedEmail = sessionStorage.getItem('email');
+            
+            if (savedName) {
+                document.getElementById('savedName').textContent = `Name: ${savedName}`;
+            }
+
+            if (savedEmail) {
+                document.getElementById('savedEmail').textContent = `Email: ${savedEmail}`;
+            }
+
+            document.getElementById('userForm').addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent the form from submitting the traditional way
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+
+                sessionStorage.setItem('name', name);
+                sessionStorage.setItem('email', email);
+
+                document.getElementById('savedName').textContent = `Name: ${name}`;
+                document.getElementById('savedEmail').textContent = `Email: ${email}`;
+
+                console.log('SessionStorage after saving:', sessionStorage);
+            });
+
+            document.getElementById('removeDataBtn').addEventListener('click', () => {
+                console.log('SessionStorage before removal:', sessionStorage);
+
+                sessionStorage.removeItem('name');
+                sessionStorage.removeItem('email');
+
+                document.getElementById('savedName').textContent = '';
+                document.getElementById('savedEmail').textContent = '';
+
+                console.log('SessionStorage after removal:', sessionStorage);
+            });
+        });
+    </script>
+</body>
+</html>
